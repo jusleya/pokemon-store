@@ -1,5 +1,5 @@
 export const flattenMessages = (nestedMessages, prefix = '') =>
-  Objext.keys(nestedMessages).reduce((messages, key) => {
+  Object.keys(nestedMessages).reduce((messages, key) => {
     const value = nestedMessages[key];
 
     const prefixedKey = prefix ? `${prefix}.${key}` : key;
