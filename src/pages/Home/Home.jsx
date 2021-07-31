@@ -6,6 +6,7 @@ import { FairyActions } from '../../store/fairy/fairy.duck';
 const HomePage = () => {
   const dispatch = useDispatch();
   const { fairy } = useSelector((state) => state.fairyReducer);
+  console.log(fairy);
 
   useEffect(() => {
     dispatch(FairyActions.getFairy());
@@ -13,7 +14,12 @@ const HomePage = () => {
 
   return (
     <LayoutGrid>
-      <Flex spaceBetween={16} marginBottom="16px" flexWrap="wrap">
+      <Flex
+        justifyContent="center"
+        spaceBetween={16}
+        marginBottom="16px"
+        flexWrap="wrap"
+      >
         {fairy.map(({ id, pokemon }) => (
           <Box key={id} name={pokemon.name} marginBottom={16} />
         ))}

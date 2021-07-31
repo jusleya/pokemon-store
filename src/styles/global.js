@@ -18,6 +18,7 @@ export default createGlobalStyle`
     ${({ theme: { colors, typography } }) => css`
       color: ${colors.auxiliary.black};
       font-family: ${typography.family.primary};
+      background-color: ${colors.auxiliary.gray};
     `}
   }
 `;

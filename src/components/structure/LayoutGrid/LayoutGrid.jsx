@@ -7,6 +7,7 @@ export const LayoutGrid = ({ children }) => (
   <S.Grid>
     <S.Navbar>Teste</S.Navbar>
     <S.Content>{children}</S.Content>
+    <S.Sidebar>Carrinho</S.Sidebar>
   </S.Grid>
 );
 

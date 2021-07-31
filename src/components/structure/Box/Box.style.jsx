@@ -1,14 +1,17 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Box = styled.div.attrs(({ marginBottom }) => ({
   marginBottom: marginBottom ?? 0,
 }))`
-  height: 140px;
+  width: 200px;
+  height: 200px;
   padding: 16px;
-  min-width: 140px;
   border-radius: 12px;
   margin-bottom: ${({ marginBottom }) => marginBottom}px;
-  background-color: greenyellow;
+  ${({ theme: { colors } }) => css`
+    background-color: ${colors.auxiliary.white};
+    border: 1px solid ${colors.primary};
+  `}
 `;
 
 export const ImgCard = styled.div`

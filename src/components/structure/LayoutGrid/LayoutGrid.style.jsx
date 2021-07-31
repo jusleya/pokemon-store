@@ -1,21 +1,31 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Grid = styled.div`
-  width: 100vw;
   display: grid;
-  grid-template: 'navbar' 'content';
-  grid-template-rows: 72px auto;
+  height: 100vh;
+  grid-template: 'navbar navbar' 'content sidebar';
+  grid-template-columns: auto 400px;
 `;
 
 export const Navbar = styled.section`
   display: grid;
   grid-area: navbar;
   padding: 24px;
-  background-color: red;
+  ${({ theme: { colors } }) => css`
+    background-color: ${colors.primary};
+  `}
 `;
 
 export const Content = styled.section`
   display: grid;
-  grid-area: content;
   padding: 24px;
+  overflow: auto;
+  grid-area: content;
+`;
+
+export const Sidebar = styled.section`
+  display: grid;
+  padding: 24px;
+  grid-area: sidebar;
+  background-color: aquamarine;
 `;
