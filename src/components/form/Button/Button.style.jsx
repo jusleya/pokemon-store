@@ -1,0 +1,31 @@
+import styled, { css } from 'styled-components';
+
+export const Button = styled.button`
+  border: none;
+  cursor: pointer;
+  padding: 8px 25px;
+  border-radius: 8px;
+
+  ${({ theme: { colors } }) => css`
+    font-size: 16px;
+    background-image: linear-gradient(
+      to right,
+      ${colors.primary},
+      ${colors.secondary},
+      ${colors.primary}
+    );
+    background-size: 200% 100%;
+    background-position: left center;
+
+    &:hover {
+      font-weight: bold;
+      background-position: right center;
+    }
+  `}
+
+  ${({ fullWidth }) =>
+    fullWidth &&
+    css`
+      width: 100%;
+    `};
+`;

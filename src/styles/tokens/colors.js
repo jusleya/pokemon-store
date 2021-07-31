@@ -1,8 +1,6 @@
 export const colors = {
   primary: '#f492a5',
   secondary: '#f9cbd0',
-  terciary: '#6e82b7',
-  quaernary: '#95daf8',
 
   auxiliary: {
     black: '#333',

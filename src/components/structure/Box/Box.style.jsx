@@ -6,11 +6,12 @@ export const Box = styled.div.attrs(({ marginBottom }) => ({
   width: 200px;
   height: 300px;
   padding: 16px;
+  text-align: center;
   border-radius: 12px;
   margin-bottom: ${({ marginBottom }) => marginBottom}px;
   ${({ theme: { colors } }) => css`
     background-color: ${colors.auxiliary.white};
-    border: 1px solid ${colors.primary};
+    border: 1px solid ${colors.secondary};
   `}
 `;
 
@@ -18,5 +19,15 @@ export const ImgCard = styled.div`
   height: 150px;
   border-radius: 8px;
   margin-bottom: 8px;
-  background-color: black;
+  background-color: aliceblue;
+`;
+
+export const Price = styled.h3`
+  font-weight: normal;
+  margin-bottom: 20px;
+`;
+
+export const Title = styled.h1`
+  font-size: 18px;
+  font-weight: bold;
 `;

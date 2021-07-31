@@ -20,6 +20,7 @@ module.exports = {
       'after',
       { overrides: { '?': 'before', ':': 'before' } },
     ],
+    'implicit-arrow-linebreak': 0,
     'linebreak-style': 0,
   },
   settings: {
