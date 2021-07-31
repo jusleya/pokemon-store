@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { LayoutGrid, Box } from '../../components/structure';
+import { LayoutGrid, Flex, Box } from '../../components/structure';
 import { FairyActions } from '../../store/fairy/fairy.duck';
 
 const HomePage = () => {
@@ -13,9 +13,11 @@ const HomePage = () => {
 
   return (
     <LayoutGrid>
-      {fairy.map(({ id, pokemon }) => (
-        <Box key={id} name={pokemon.name} />
-      ))}
+      <Flex spaceBetween={16} marginBottom="16px" flexWrap="wrap">
+        {fairy.map(({ id, pokemon }) => (
+          <Box key={id} name={pokemon.name} marginBottom={16} />
+        ))}
+      </Flex>
     </LayoutGrid>
   );
 };
