@@ -1,5 +1,6 @@
 import React from 'react';
+import LayoutGrid from '../../components/structure/LayoutGrid/LayoutGrid';
 
-const HomePage = () => <div>Teste</div>;
+const HomePage = () => <LayoutGrid>Content</LayoutGrid>;
 
 export default HomePage;
