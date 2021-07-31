@@ -20,7 +20,7 @@ const getFairy = (state = INITAL_STATE) => ({
 const getFairySuccess = (state, payload) => ({
   ...state,
   loading: false,
-  fairy: payload,
+  fairy: payload.fairy,
 });
 
 const getFairyError = (state = INITAL_STATE) => ({

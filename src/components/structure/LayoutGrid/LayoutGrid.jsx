@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import * as S from './LayoutGrid.style';
 
-const LayoutGrid = ({ children }) => (
+export const LayoutGrid = ({ children }) => (
   <S.Grid>
     <S.Navbar>Teste</S.Navbar>
     <S.Content>{children}</S.Content>
@@ -13,5 +13,3 @@ const LayoutGrid = ({ children }) => (
 LayoutGrid.propTypes = {
   children: PropTypes.node.isRequired,
 };
-
-export default LayoutGrid;
