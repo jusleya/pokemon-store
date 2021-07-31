@@ -1,4 +1,5 @@
 export const flattenMessages = (nestedMessages, prefix = '') =>
+  // eslint-disable-next-line implicit-arrow-linebreak
   Object.keys(nestedMessages).reduce((messages, key) => {
     const value = nestedMessages[key];
 

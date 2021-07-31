@@ -15,6 +15,11 @@ module.exports = {
     'react/jsx-curly-brace-presence': 'off',
     'import/prefer-default-export': 'off',
     'arrow-body-style': ['warn', 'as-needed'],
+    'operator-linebreak': [
+      'error',
+      'after',
+      { overrides: { '?': 'before', ':': 'before' } },
+    ],
     'linebreak-style': 0,
   },
   settings: {
