@@ -9,5 +9,5 @@ export const flattenMessages = (nestedMessages, prefix = '') =>
         ? { [prefixedKey]: value }
         : flattenMessages(value, prefixedKey);
 
-    return Object.assign(messages, flattenMessages);
+    return Object.assign(messages, flattenMessage);
   }, {});

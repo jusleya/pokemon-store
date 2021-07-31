@@ -5,12 +5,12 @@ import { ThemeProvider } from 'styled-components';
 import IntlProviderWrapper from './providers/IntlProviderWrapper';
 import theme from './styles/theme';
 import Routes from './routes.jsx';
-// import { store } from './store';
+import { store } from './store';
 import GlobalStyles from './styles/global';
 import './assets/fonts/Montserrat/style.css';
 
 ReactDOM.render(
-  <Provider>
+  <Provider store={store}>
     <IntlProviderWrapper>
       <ThemeProvider theme={theme}>
         <GlobalStyles />
