@@ -15,8 +15,9 @@ export default createGlobalStyle`
 
   body {
     height: 100%;
-    ${({ theme: { colors } }) => css`
+    ${({ theme: { colors, typography } }) => css`
       color: ${colors.auxiliary.black};
+      font-family: ${typography.family.primary};
     `}
   }
 `;
