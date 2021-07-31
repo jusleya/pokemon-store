@@ -1,5 +1,9 @@
 export const base = 'https://pokeapi.co/api/v2';
 
-export const baseURL = `${base}/type`;
+export const baseURL = `${base}`;
 
-export const FAIRY = `${baseURL}/fairy`;
+export const TYPE = `${baseURL}/type`;
+
+export const POKEMON = `${baseURL}/pokemon`;
+
+export const FAIRY = `${TYPE}/fairy`;

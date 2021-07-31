@@ -4,7 +4,7 @@ import { GET } from '../../constants/verbs';
 import { FAIRY } from '../../constants/endpoints';
 import api from '../../services/api';
 
-export function* getPlans() {
+export function* getFairy() {
   try {
     const fairy = yield api({
       method: GET,
@@ -18,5 +18,5 @@ export function* getPlans() {
 }
 
 export function* watchSagas() {
-  yield takeLatest(FairyType.GET_FAIRY, getPlans);
+  yield takeLatest(FairyType.GET_FAIRY, getFairy);
 }
