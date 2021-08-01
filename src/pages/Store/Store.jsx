@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { LayoutGrid, Flex, Box } from '../../components/structure';
 import { FairyActions } from '../../store/fairy/fairy.duck';
 
-import * as S from './Home.style';
+import * as S from './Store.style';
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -13,6 +13,7 @@ const HomePage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const pagesNumbers = [];
   for (let i = 1; i <= totalPages; i += 1) pagesNumbers.push(i);
+
   const pages = () =>
     pagesNumbers.map((number) => (
       <S.Page
