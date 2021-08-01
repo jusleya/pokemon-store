@@ -8,7 +8,7 @@ import Home from './pages/Home';
 const Routes = () => (
   <ConnectedRouter history={history}>
     <Switch>
-      <Route exact path={ROUTES.home} component={Home} />
+      <Route exact path={ROUTES.store} component={Home} />
     </Switch>
   </ConnectedRouter>
 );

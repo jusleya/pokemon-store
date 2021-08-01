@@ -9,8 +9,9 @@ export const Grid = styled.div`
 
 export const Navbar = styled.section`
   display: grid;
-  grid-area: navbar;
   padding: 24px;
+  height: 72px;
+  grid-area: navbar;
   ${({ theme: { colors } }) => css`
     background-color: ${colors.primary};
   `}

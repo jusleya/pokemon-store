@@ -1,9 +1,9 @@
 const ROUTES = {
-  home: '/',
+  store: '/',
 };
 
 const LINKS = {
-  home: ROUTES.home,
+  store: ROUTES.store,
 };
 
 const urls = { ROUTES, LINKS };

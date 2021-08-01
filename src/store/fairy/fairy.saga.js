@@ -10,8 +10,30 @@ export function* getFairy() {
       method: GET,
       url: FAIRY,
     });
+    const pokemons = fairy.data.pokemon;
+    const pokemonLength = pokemons.length;
+    let i = 0;
+    let arrayAux = [];
+    const arrayPokemons = [];
 
-    yield put({ fairy: fairy.data.pokemon, type: FairyType.GET_FAIRY_SUCCESS });
+    while (i <= pokemonLength) {
+      for (let j = i; j < i + 8; j += 1) {
+        if (pokemons[j] !== undefined) arrayAux.push(pokemons[j]);
+      }
+      arrayPokemons.push(arrayAux);
+      arrayAux = [];
+      i += 8;
+    }
+    const totalPages = arrayPokemons.filter(
+      (array) => array.length !== 0,
+    ).length;
+
+    yield put({
+      totalPages,
+      arrayPokemons,
+      fairy: pokemons,
+      type: FairyType.GET_FAIRY_SUCCESS,
+    });
   } catch {
     yield put({ type: FairyType.GET_FAIRY_ERROR });
   }

@@ -9,7 +9,9 @@ export const { Types: FairyType, Creators: FairyActions } = createActions({
 const INITAL_STATE = {
   fairy: [],
   error: false,
+  totalPages: 0,
   loading: false,
+  arrayPokemons: [],
 };
 
 const getFairy = (state = INITAL_STATE) => ({
@@ -21,6 +23,8 @@ const getFairySuccess = (state, payload) => ({
   ...state,
   loading: false,
   fairy: payload.fairy,
+  totalPages: payload.totalPages,
+  arrayPokemons: payload.arrayPokemons,
 });
 
 const getFairyError = (state = INITAL_STATE) => ({

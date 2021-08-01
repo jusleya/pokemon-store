@@ -9,12 +9,14 @@ export const Flex = styled.div.attrs(
     direction,
     alignItems,
     spaceBetween,
+    paddingBottom,
     justifyContent,
   }) => ({
     padding: padding ?? 0,
     width: width ?? 'auto',
     direction: direction ?? 'row',
     flexWrap: flexWrap ?? 'unset',
+    paddingBottom: paddingBottom ?? 0,
     spaceBetween: spaceBetween ?? 0,
     alignItems: alignItems ?? 'flex-start',
     justifyContent: justifyContent ?? 'flex-start',
@@ -26,6 +28,7 @@ export const Flex = styled.div.attrs(
   width: ${({ width }) => width || '100%'};
   align-items: ${({ alignItems }) => alignItems};
   flex-direction: ${({ direction }) => direction};
+  padding-bottom: ${({ paddingBottom }) => paddingBottom}px;
   justify-content: ${({ justifyContent }) => justifyContent};
   ${({ spaceBetween, direction }) =>
     direction === 'column'

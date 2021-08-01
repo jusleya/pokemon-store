@@ -4,7 +4,7 @@ export const Box = styled.div.attrs(({ marginBottom }) => ({
   marginBottom: marginBottom ?? 0,
 }))`
   width: 200px;
-  height: 300px;
+  height: 350px;
   padding: 16px;
   text-align: center;
   border-radius: 12px;
