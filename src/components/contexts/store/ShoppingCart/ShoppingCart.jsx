@@ -8,11 +8,16 @@ import * as S from './ShoppingCart.style';
 
 export const ShoppingCart = ({ list }) => {
   const { formatMessage } = useIntl();
-  console.log('sc: ', list);
+
   return (
     <S.Card>
       <S.Cart>{formatMessage({ id: 'store.cart' })}</S.Cart>
-      <S.List>aqui</S.List>
+      <S.List>
+        {list.map(({ listShopping }) => {
+          const { id, name } = listShopping;
+          return <p key={id}>{name}</p>;
+        })}
+      </S.List>
       {/* <Flex justifyContent="center">
         <Button>{formatMessage({ id: 'button.finalize' })}</Button>
       </Flex> */}

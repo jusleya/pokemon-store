@@ -40,17 +40,14 @@ const HomePage = () => {
     <LayoutGrid>
       <LayoutGrid.Content>
         <S.Content spaceBetween={16}>
-          {arrayPokemons[currentPage - 1]?.map(({ pokemon: pokemonItem }) => {
-            const { name } = pokemonItem;
-            return (
-              <Box
-                key={name}
-                name={name}
-                marginBottom={16}
-                onClick={() => shoppingList(name)}
-              />
-            );
-          })}
+          {arrayPokemons[currentPage - 1]?.map(({ name, id: idPokemon }) => (
+            <Box
+              key={idPokemon}
+              name={name}
+              marginBottom={16}
+              onClick={() => shoppingList(name)}
+            />
+          ))}
         </S.Content>
         <Flex spaceBetween={4} justifyContent="center" paddingBottom={16}>
           {pages()}

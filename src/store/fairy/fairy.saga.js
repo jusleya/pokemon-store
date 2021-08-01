@@ -15,10 +15,16 @@ export function* getFairy() {
     let i = 0;
     let arrayAux = [];
     const arrayPokemons = [];
+    let id = 0;
 
     while (i <= pokemonLength) {
       for (let j = i; j < i + 8; j += 1) {
-        if (pokemons[j] !== undefined) arrayAux.push(pokemons[j]);
+        if (pokemons[j] !== undefined) {
+          const auxPokemon = pokemons[j];
+          const pokemon = { ...auxPokemon.pokemon, id };
+          arrayAux.push(pokemon);
+          id += 1;
+        }
       }
       arrayPokemons.push(arrayAux);
       arrayAux = [];
