@@ -57,7 +57,7 @@ const HomePage = () => {
         </Flex>
       </LayoutGrid.Content>
       <LayoutGrid.Sidebar>
-        <ShoppingCart name={listShopping} />
+        <ShoppingCart list={listShopping} />
       </LayoutGrid.Sidebar>
     </LayoutGrid>
   );

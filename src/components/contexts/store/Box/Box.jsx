@@ -1,4 +1,5 @@
 import React from 'react';
+import { useIntl } from 'react-intl';
 import PropTypes from 'prop-types';
 // eslint-disable-next-line import/no-cycle
 import { Flex } from '../../../structure';
@@ -7,6 +8,7 @@ import { Button } from '../../../form';
 import * as S from './Box.style';
 
 export const Box = ({ name, marginBottom, onClick }) => {
+  const { formatMessage } = useIntl();
   const price = 100;
 
   return (
@@ -27,7 +29,7 @@ export const Box = ({ name, marginBottom, onClick }) => {
         </S.Price>
       </Flex>
       <Button onClick={onClick} fullWidth>
-        Adicionar
+        {formatMessage({ id: 'button.add' })}
       </Button>
     </S.Box>
   );

@@ -47,18 +47,10 @@ const shoppingBuy = (state = INITAL_STATE) => ({
 
 const shoppingBuySuccess = (state, payload) => {
   const { listShopping } = payload;
-  const l = state.listShopping;
-  const list = (listS) => [...l, listS];
-
-  const add = () => {
-    if (l.length > 0) {
-      return l.map((li) => li.name !== listShopping.name && list(listShopping));
-    } else return list(listShopping);
-  };
 
   return {
     ...state,
-    listShopping: add(),
+    listShopping: [...state.listShopping, { listShopping }],
     isLoading: false,
   };
 };

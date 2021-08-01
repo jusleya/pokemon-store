@@ -1,15 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useIntl } from 'react-intl';
+// import { Button } from '../../../form';
+// import { Flex } from '../../../structure';
 
-export const ShoppingCart = ({ name }) => {
-  console.log(name);
-  return <div>card</div>;
+import * as S from './ShoppingCart.style';
+
+export const ShoppingCart = ({ list }) => {
+  const { formatMessage } = useIntl();
+  console.log('sc: ', list);
+  return (
+    <S.Card>
+      <S.Cart>{formatMessage({ id: 'store.cart' })}</S.Cart>
+      <S.List>aqui</S.List>
+      {/* <Flex justifyContent="center">
+        <Button>{formatMessage({ id: 'button.finalize' })}</Button>
+      </Flex> */}
+    </S.Card>
+  );
 };
 
 ShoppingCart.defaultProps = {
-  name: [],
+  list: [],
 };
 
 ShoppingCart.propTypes = {
-  name: PropTypes.array,
+  list: PropTypes.array,
 };
