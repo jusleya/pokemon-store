@@ -1,15 +1,14 @@
+/* eslint-disable */
 import React from 'react';
 import { useIntl } from 'react-intl';
 import PropTypes from 'prop-types';
-// eslint-disable-next-line import/no-cycle
 import { Flex } from '../../../structure';
 import { Button } from '../../../form';
 
 import * as S from './Box.style';
 
-export const Box = ({ name, marginBottom, onClick }) => {
+export const Box = ({ name, marginBottom, price, onClick }) => {
   const { formatMessage } = useIntl();
-  const price = 100;
 
   return (
     <S.Box marginBottom={marginBottom}>
@@ -41,6 +40,7 @@ Box.defaultProps = {
 
 Box.propTypes = {
   marginBottom: PropTypes.number,
+  price: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
 };

@@ -11,9 +11,9 @@ const HomePage = () => {
   const { arrayPokemons, totalPages, listShopping } = useSelector(
     (state) => state.fairyReducer,
   );
+  const price = 100;
   const [currentPage, setCurrentPage] = useState(1);
   const pagesNumbers = [];
-  const [id, setId] = useState(0);
   for (let i = 1; i <= totalPages; i += 1) pagesNumbers.push(i);
 
   const pages = () =>
@@ -27,9 +27,8 @@ const HomePage = () => {
       </S.Page>
     ));
 
-  const shoppingList = (name) => {
+  const shoppingList = (id, name) => {
     dispatch(FairyActions.shoppingBuy({ id, name }));
-    setId(id + 1);
   };
 
   useEffect(() => {
@@ -44,8 +43,9 @@ const HomePage = () => {
             <Box
               key={idPokemon}
               name={name}
+              price={price}
               marginBottom={16}
-              onClick={() => shoppingList(name)}
+              onClick={() => shoppingList(idPokemon, name)}
             />
           ))}
         </S.Content>
@@ -54,7 +54,7 @@ const HomePage = () => {
         </Flex>
       </LayoutGrid.Content>
       <LayoutGrid.Sidebar>
-        <ShoppingCart list={listShopping} />
+        <ShoppingCart list={listShopping} price={price} />
       </LayoutGrid.Sidebar>
     </LayoutGrid>
   );

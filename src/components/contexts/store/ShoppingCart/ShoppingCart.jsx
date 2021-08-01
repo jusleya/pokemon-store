@@ -1,34 +1,68 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
-// import { Button } from '../../../form';
-// import { Flex } from '../../../structure';
+import { Button } from '../../../form';
+import { Flex } from '../../../structure';
+import { IcCart } from '../../../../assets/icons';
 
 import * as S from './ShoppingCart.style';
 
-export const ShoppingCart = ({ list }) => {
+export const ShoppingCart = ({ list, price }) => {
   const { formatMessage } = useIntl();
+  let cont = 0;
+  let valueT = 0;
 
   return (
     <S.Card>
-      <S.Cart>{formatMessage({ id: 'store.cart' })}</S.Cart>
+      <S.Cart spaceBetween={8}>
+        <IcCart />
+        <h3>{formatMessage({ id: 'store.cart' })}</h3>
+      </S.Cart>
       <S.List>
         {list.map(({ listShopping }) => {
-          const { id, name } = listShopping;
-          return <p key={id}>{name}</p>;
+          const { name } = listShopping;
+          cont += 1;
+          valueT = price * cont;
+
+          return (
+            <Flex justifyContent="space-between">
+              <S.Item key={cont}>{name}</S.Item>
+              <p>
+                {price.toLocaleString('pt-BR', {
+                  style: 'currency',
+                  currency: 'BRL',
+                })}
+              </p>
+            </Flex>
+          );
         })}
       </S.List>
-      {/* <Flex justifyContent="center">
-        <Button>{formatMessage({ id: 'button.finalize' })}</Button>
-      </Flex> */}
+      <S.Info>
+        <Flex justifyContent="space-between">
+          <p>{formatMessage({ id: 'store.total' })}</p>
+          <p>
+            <b>
+              {valueT.toLocaleString('pt-BR', {
+                style: 'currency',
+                currency: 'BRL',
+              })}
+            </b>
+          </p>
+        </Flex>
+        <div>
+          <Button fullWidth>{formatMessage({ id: 'button.finalize' })}</Button>
+        </div>
+      </S.Info>
     </S.Card>
   );
 };
 
 ShoppingCart.defaultProps = {
   list: [],
+  price: 0,
 };
 
 ShoppingCart.propTypes = {
   list: PropTypes.array,
+  price: PropTypes.number,
 };

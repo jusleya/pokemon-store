@@ -1,5 +1,6 @@
 {
   "store": {
-    "cart": "Carrinho"
+    "cart": "Carrinho",
+    "total": "Valor total: "
   }
 }
