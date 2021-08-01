@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components';
 export const Flex = styled.div.attrs(
   ({
     width,
+    height,
     padding,
     flexWrap,
     direction,
@@ -14,6 +15,7 @@ export const Flex = styled.div.attrs(
   }) => ({
     padding: padding ?? 0,
     width: width ?? 'auto',
+    height: height ?? 'auto',
     direction: direction ?? 'row',
     flexWrap: flexWrap ?? 'unset',
     paddingBottom: paddingBottom ?? 0,
@@ -23,6 +25,7 @@ export const Flex = styled.div.attrs(
   }),
 )`
   display: flex;
+  height: ${({ height }) => height}px;
   padding: ${({ padding }) => padding};
   flex-wrap: ${({ flexWrap }) => flexWrap};
   width: ${({ width }) => width || '100%'};

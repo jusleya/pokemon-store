@@ -12,7 +12,12 @@ export const Box = ({ name, marginBottom }) => {
   return (
     <S.Box marginBottom={marginBottom}>
       <S.ImgCard />
-      <Flex direction="column" alignItems="center" spaceBetween={8}>
+      <Flex
+        height={100}
+        direction="column"
+        alignItems="center"
+        spaceBetween={8}
+      >
         <S.Title>{name}</S.Title>
         <S.Price>
           {price.toLocaleString('pt-BR', {

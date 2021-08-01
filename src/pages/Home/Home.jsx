@@ -30,7 +30,12 @@ const HomePage = () => {
 
   return (
     <LayoutGrid>
-      <Flex justifyContent="center" spaceBetween={16} flexWrap="wrap">
+      <Flex
+        width="1000px"
+        justifyContent="center"
+        spaceBetween={16}
+        flexWrap="wrap"
+      >
         {arrayPokemons[currentPage - 1]?.map(({ pokemon: pokemonItem }) => {
           const { name } = pokemonItem;
           return <Box key={name} name={name} marginBottom={16} />;

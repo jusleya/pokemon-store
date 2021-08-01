@@ -2,7 +2,6 @@ import styled, { css } from 'styled-components';
 
 export const Grid = styled.div`
   display: grid;
-  height: 100vh;
   grid-template: 'navbar navbar' 'content sidebar';
   grid-template-columns: auto 400px;
 `;
@@ -21,6 +20,7 @@ export const Content = styled.section`
   display: grid;
   padding: 24px;
   overflow: auto;
+  justify-content: center;
   grid-area: content;
 `;
 

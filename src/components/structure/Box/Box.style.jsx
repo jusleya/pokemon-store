@@ -28,6 +28,7 @@ export const Price = styled.h3`
 `;
 
 export const Title = styled.h1`
+  height: 60px;
   font-size: 18px;
   font-weight: bold;
 `;
