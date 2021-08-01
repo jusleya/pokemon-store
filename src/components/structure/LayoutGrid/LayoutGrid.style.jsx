@@ -3,12 +3,13 @@ import media from 'styled-media-query';
 
 export const Grid = styled.div`
   display: grid;
-  grid-template: 'navbar navbar' 'content sidebar';
+  grid-template-areas: 'navbar navbar' 'content sidebar';
   grid-template-columns: auto 400px;
 
   ${media.lessThan('1024px')`
-    grid-template-areas: 'navbar' 'content';
-    grid-template-columns: 100vw;
+    width: 100vw;
+    grid-template-columns: auto;
+    grid-template-areas: 'navbar''content';
   `}
 `;
 
@@ -19,10 +20,6 @@ export const Navbar = styled.section`
   grid-area: navbar;
   ${({ theme: { colors } }) => css`
     background-color: ${colors.primary};
-  `}
-
-  ${media.lessThan('1024px')`
-    width: 100vw;
   `}
 `;
 

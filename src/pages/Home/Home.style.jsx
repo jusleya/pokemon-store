@@ -6,7 +6,6 @@ export const Content = styled(Flex)`
   width: 1000px;
   flex-wrap: wrap;
   justify-content: center;
-
   ${media.lessThan('1024px')`
     width: auto;
   `}
