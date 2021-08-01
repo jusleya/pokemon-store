@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-cycle
-export * from './Box/Box';
+/* eslint-disable import/no-cycle */
 export * from './Flex/Flex';
 export * from './LayoutGrid/LayoutGrid';

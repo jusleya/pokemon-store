@@ -1,9 +1,14 @@
+/* eslint-disable */
 import { createActions, createReducer } from 'reduxsauce';
 
 export const { Types: FairyType, Creators: FairyActions } = createActions({
   getFairy: ['payload'],
   getFairySuccess: ['payload'],
   getFairyError: ['payload'],
+
+  shoppingBuy: ['payload'],
+  shoppingBuySuccess: ['payload'],
+  shoppingBuyError: ['payload'],
 });
 
 const INITAL_STATE = {
@@ -12,6 +17,8 @@ const INITAL_STATE = {
   totalPages: 0,
   loading: false,
   arrayPokemons: [],
+  listShopping: [],
+  loadingShopping: false,
 };
 
 const getFairy = (state = INITAL_STATE) => ({
@@ -33,8 +40,41 @@ const getFairyError = (state = INITAL_STATE) => ({
   loading: false,
 });
 
+const shoppingBuy = (state = INITAL_STATE) => ({
+  ...state,
+  loadingShopping: true,
+});
+
+const shoppingBuySuccess = (state, payload) => {
+  const { listShopping } = payload;
+  const l = state.listShopping;
+  const list = (listS) => [...l, listS];
+
+  const add = () => {
+    if (l.length > 0) {
+      return l.map((li) => li.name !== listShopping.name && list(listShopping));
+    } else return list(listShopping);
+  };
+
+  return {
+    ...state,
+    listShopping: add(),
+    isLoading: false,
+  };
+};
+
+const shoppingBuyError = (state) => ({
+  ...state,
+  error: true,
+  loadingShopping: false,
+});
+
 export default createReducer(INITAL_STATE, {
   [FairyType.GET_FAIRY]: getFairy,
   [FairyType.GET_FAIRY_SUCCESS]: getFairySuccess,
   [FairyType.GET_FAIRY_ERROR]: getFairyError,
+
+  [FairyType.SHOPPING_BUY]: shoppingBuy,
+  [FairyType.SHOPPING_BUY_SUCCESS]: shoppingBuySuccess,
+  [FairyType.SHOPPING_BUY_ERROR]: shoppingBuyError,
 });

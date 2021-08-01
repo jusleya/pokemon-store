@@ -1,5 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-import * as S from './ShoppingCart.style';
+export const ShoppingCart = ({ name }) => {
+  console.log(name);
+  return <div>card</div>;
+};
 
-export const ShoppingCart = () => <S.Shopping>test</S.Shopping>;
+ShoppingCart.defaultProps = {
+  name: [],
+};
+
+ShoppingCart.propTypes = {
+  name: PropTypes.array,
+};

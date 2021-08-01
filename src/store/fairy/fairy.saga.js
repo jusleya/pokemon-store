@@ -39,6 +39,18 @@ export function* getFairy() {
   }
 }
 
+export function* shoppingBuy({ payload }) {
+  try {
+    yield put({
+      listShopping: payload,
+      type: FairyType.SHOPPING_BUY_SUCCESS,
+    });
+  } catch {
+    yield put({ type: FairyType.SHOPPING_BUY_ERROR });
+  }
+}
+
 export function* watchSagas() {
   yield takeLatest(FairyType.GET_FAIRY, getFairy);
+  yield takeLatest(FairyType.SHOPPING_BUY, shoppingBuy);
 }

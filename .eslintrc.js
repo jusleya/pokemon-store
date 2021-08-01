@@ -13,6 +13,7 @@ module.exports = {
   rules: {
     'react/jsx-props-no-spreading': 'off',
     'react/jsx-curly-brace-presence': 'off',
+    'react/forbid-prop-types': 0,
     'import/prefer-default-export': 'off',
     'arrow-body-style': ['warn', 'as-needed'],
     'operator-linebreak': [

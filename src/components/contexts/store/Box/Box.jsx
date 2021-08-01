@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // eslint-disable-next-line import/no-cycle
-import { Flex } from '..';
-import { Button } from '../../form';
+import { Flex } from '../../../structure';
+import { Button } from '../../../form';
 
 import * as S from './Box.style';
 
-export const Box = ({ name, marginBottom }) => {
+export const Box = ({ name, marginBottom, onClick }) => {
   const price = 100;
 
   return (
@@ -26,7 +26,9 @@ export const Box = ({ name, marginBottom }) => {
           })}
         </S.Price>
       </Flex>
-      <Button fullWidth>Adicionar</Button>
+      <Button onClick={onClick} fullWidth>
+        Adicionar
+      </Button>
     </S.Box>
   );
 };
@@ -38,4 +40,5 @@ Box.defaultProps = {
 Box.propTypes = {
   marginBottom: PropTypes.number,
   name: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
 };

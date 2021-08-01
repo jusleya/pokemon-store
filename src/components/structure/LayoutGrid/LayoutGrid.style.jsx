@@ -30,3 +30,9 @@ export const Content = styled.section`
   justify-content: center;
   grid-area: content;
 `;
+
+export const Sidebar = styled.section`
+  display: grid;
+  padding: 24px;
+  grid-area: sidebar;
+`;

@@ -1,9 +1,10 @@
+/* eslint-disable object-curly-newline */
 import React from 'react';
 import PropTypes from 'prop-types';
 import * as S from './Button.style';
 
-export const Button = ({ type, fullWidth, children }) => (
-  <S.Button fullWidth={fullWidth} type={type}>
+export const Button = ({ type, fullWidth, onClick, children }) => (
+  <S.Button fullWidth={fullWidth} onClick={onClick} type={type}>
     {children}
   </S.Button>
 );
@@ -11,6 +12,7 @@ export const Button = ({ type, fullWidth, children }) => (
 Button.propTypes = {
   type: PropTypes.string,
   fullWidth: PropTypes.bool,
+  onClick: PropTypes.func.isRequired,
   children: PropTypes.node.isRequired,
 };
 
