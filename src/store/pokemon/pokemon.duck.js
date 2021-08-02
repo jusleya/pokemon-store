@@ -11,7 +11,7 @@ export const { Types: PokemonType, Creators: PokemonActions } = createActions({
 });
 
 const INITAL_STATE = {
-  pokemon: [],
+  pokemons: [],
   error: false,
   totalPages: 0,
   loading: false,
@@ -28,7 +28,7 @@ const getPokemon = (state = INITAL_STATE) => ({
 const getPokemonSuccess = (state, payload) => ({
   ...state,
   loading: false,
-  pokemon: payload.pokemon,
+  pokemons: payload.pokemons,
   totalPages: payload.totalPages,
   arrayPokemons: payload.arrayPokemons,
 });

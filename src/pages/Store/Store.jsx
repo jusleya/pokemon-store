@@ -8,7 +8,7 @@ import * as S from './Store.style';
 
 const HomePage = () => {
   const dispatch = useDispatch();
-  const { arrayPokemons, totalPages, listShopping } = useSelector(
+  const { pokemons, arrayPokemons, totalPages, listShopping } = useSelector(
     (state) => state.pokemonReducer,
   );
   const price = 100;
@@ -39,6 +39,7 @@ const HomePage = () => {
     <LayoutGrid
       sidebar={<ShoppingCart list={listShopping} price={price} />}
       listShopping={listShopping}
+      pokemons={pokemons}
     >
       <S.Content spaceBetween={16}>
         {arrayPokemons[currentPage - 1]?.map(({ name, id: idPokemon }) => (

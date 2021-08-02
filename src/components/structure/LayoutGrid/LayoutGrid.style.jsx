@@ -22,23 +22,27 @@ export const Grid = styled.div`
 `;
 
 export const Navbar = styled.section`
-  display: grid;
-  padding: 24px;
   height: 72px;
+  display: grid;
+  padding: 16px;
   grid-area: navbar;
+  align-items: center;
   ${({ theme: { colors } }) => css`
     background-color: ${colors.primary};
   `}
+`;
+
+export const Cart = styled.div`
   svg {
     display: none;
   }
 
   ${media.lessThan('1025px')`
-    width: 100vw;
-    svg {
-      display: block;
-    }
-  `}
+  svg {
+    display: block;
+    margin-right: 20px;
+  }
+`}
 `;
 
 export const Content = styled.section`
@@ -66,7 +70,7 @@ export const Number = styled.p`
 
   ${media.lessThan('1025px')`
     top: 32px;
-    right: 8px;
+    right: 20px;
     display: block;
     font-size: 10px;
     padding: 2px 6px;

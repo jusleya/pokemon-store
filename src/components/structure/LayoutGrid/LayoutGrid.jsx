@@ -1,19 +1,21 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Flex } from '..';
+import { Search } from '../../form';
 
-import * as S from './LayoutGrid.style';
 import { IcCart, IcClose } from '../../../assets/icons';
 
-export const LayoutGrid = ({ children, sidebar, listShopping }) => {
+import * as S from './LayoutGrid.style';
+
+export const LayoutGrid = ({ children, sidebar, pokemons, listShopping }) => {
   const [showCart, setShowCart] = useState(false);
 
   return (
     <S.Grid show={showCart}>
       <S.Navbar>
         <Flex justifyContent="space-between">
-          <p>Teste</p>
-          <div aria-hidden="true" onClick={() => setShowCart(!showCart)}>
+          <Search pokemons={pokemons} />
+          <S.Cart aria-hidden="true" onClick={() => setShowCart(!showCart)}>
             {showCart ? (
               <IcClose />
             ) : (
@@ -22,7 +24,7 @@ export const LayoutGrid = ({ children, sidebar, listShopping }) => {
                 <S.Number>{listShopping.length}</S.Number>
               </>
             )}
-          </div>
+          </S.Cart>
         </Flex>
       </S.Navbar>
       <S.Content show={showCart}>{children}</S.Content>
@@ -33,10 +35,12 @@ export const LayoutGrid = ({ children, sidebar, listShopping }) => {
 
 LayoutGrid.defaultProps = {
   listShopping: [],
+  pokemons: [],
 };
 
 LayoutGrid.propTypes = {
   children: PropTypes.node.isRequired,
   sidebar: PropTypes.node.isRequired,
   listShopping: PropTypes.array,
+  pokemons: PropTypes.array,
 };

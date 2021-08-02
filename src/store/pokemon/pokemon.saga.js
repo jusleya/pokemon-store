@@ -15,15 +15,14 @@ export function* getPokemon() {
     let i = 0;
     let arrayAux = [];
     const arrayPokemons = [];
-    let id = 0;
+    for (let k = 0; k < pokemonLength; k += 1) {
+      pokemons[k] = { ...pokemons[k], ...(pokemons[k].pokemon.id = k) };
+    }
 
     while (i <= pokemonLength) {
       for (let j = i; j < i + 8; j += 1) {
         if (pokemons[j] !== undefined) {
-          const auxPokemon = pokemons[j];
-          const pokemon = { ...auxPokemon.pokemon, id };
-          arrayAux.push(pokemon);
-          id += 1;
+          arrayAux.push(pokemons[j].pokemon);
         }
       }
       arrayPokemons.push(arrayAux);
@@ -35,9 +34,9 @@ export function* getPokemon() {
     ).length;
 
     yield put({
+      pokemons,
       totalPages,
       arrayPokemons,
-      pokemon: pokemons,
       type: PokemonType.GET_POKEMON_SUCCESS,
     });
   } catch {
