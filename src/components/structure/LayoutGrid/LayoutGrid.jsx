@@ -1,30 +1,38 @@
 /* eslint-disable */
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { Flex } from '..';
 
 import * as S from './LayoutGrid.style';
+import { IcCart, IcClose } from '../../../assets/icons';
 
-export const LayoutGrid = ({ children }) => {
-  const renderComponents = Object.keys(LayoutGrid).map((key) =>
-    React.Children.map(children, (child) =>
-      child.type.name === key ? child : null,
-    ),
-  );
+export const LayoutGrid = ({ children, sidebar, listShopping }) => {
+  const [showCart, setShowCart] = useState(false);
 
   return (
-    <S.Grid>
-      <S.Navbar>Teste</S.Navbar>
-      {renderComponents.map((component) => component)}
+    <S.Grid show={showCart}>
+      <S.Navbar>
+        <Flex justifyContent="space-between">
+          <p>Teste</p>
+          <div onClick={() => setShowCart(!showCart)}>
+            {showCart ? (
+              <IcClose />
+            ) : (
+              <>
+                <IcCart />
+                <S.Number>{listShopping.length}</S.Number>
+              </>
+            )}
+          </div>
+        </Flex>
+      </S.Navbar>
+      <S.Content show={showCart}>{children}</S.Content>
+      <S.Sidebar show={showCart}>{sidebar}</S.Sidebar>
     </S.Grid>
   );
 };
 
-const Content = ({ children }) => <S.Content>{children}</S.Content>;
-LayoutGrid.Content = Content;
-
-const Sidebar = ({ children }) => <S.Sidebar>{children}</S.Sidebar>;
-LayoutGrid.Sidebar = Sidebar;
-
 LayoutGrid.propTypes = {
   children: PropTypes.node.isRequired,
+  listShopping: PropTypes.array,
 };

@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import media from 'styled-media-query';
 
 export const Box = styled.div.attrs(({ marginBottom }) => ({
   marginBottom: marginBottom ?? 0,
@@ -12,6 +13,10 @@ export const Box = styled.div.attrs(({ marginBottom }) => ({
   ${({ theme: { colors } }) => css`
     background-color: ${colors.auxiliary.white};
     border: 1px solid ${colors.secondary};
+  `}
+  ${media.lessThan('767px')`
+    width: 100%;
+    height: auto;
   `}
 `;
 

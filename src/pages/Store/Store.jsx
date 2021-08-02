@@ -36,26 +36,24 @@ const HomePage = () => {
   }, [dispatch]);
 
   return (
-    <LayoutGrid>
-      <LayoutGrid.Content>
-        <S.Content spaceBetween={16}>
-          {arrayPokemons[currentPage - 1]?.map(({ name, id: idPokemon }) => (
-            <Box
-              key={idPokemon}
-              name={name}
-              price={price}
-              marginBottom={16}
-              onClick={() => shoppingList(idPokemon, name)}
-            />
-          ))}
-        </S.Content>
-        <Flex spaceBetween={4} justifyContent="center" paddingBottom={16}>
-          {pages()}
-        </Flex>
-      </LayoutGrid.Content>
-      <LayoutGrid.Sidebar>
-        <ShoppingCart list={listShopping} price={price} />
-      </LayoutGrid.Sidebar>
+    <LayoutGrid
+      sidebar={<ShoppingCart list={listShopping} price={price} />}
+      listShopping={listShopping}
+    >
+      <S.Content spaceBetween={16}>
+        {arrayPokemons[currentPage - 1]?.map(({ name, id: idPokemon }) => (
+          <Box
+            key={idPokemon}
+            name={name}
+            price={price}
+            marginBottom={16}
+            onClick={() => shoppingList(idPokemon, name)}
+          />
+        ))}
+      </S.Content>
+      <Flex spaceBetween={4} justifyContent="center" paddingBottom={16}>
+        {pages()}
+      </Flex>
     </LayoutGrid>
   );
 };

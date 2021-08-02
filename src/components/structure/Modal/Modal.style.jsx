@@ -1,5 +1,6 @@
 /* eslint-disable import/no-cycle */
 import styled, { css } from 'styled-components';
+import media from 'styled-media-query';
 import { Flex } from '..';
 
 export const Modal = styled.div`
@@ -23,6 +24,12 @@ export const Container = styled.div`
   ${({ theme: { colors } }) => css`
     background-color: ${colors.auxiliary.white};
     border: 1px solid ${colors.secondary};
+  `}
+
+  ${media.lessThan('767px')`
+      left: 15%;
+      width: 250px;
+      height: auto;
   `}
 `;
 
