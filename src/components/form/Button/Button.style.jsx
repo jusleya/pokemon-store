@@ -23,6 +23,26 @@ export const Button = styled.button`
     }
   `}
 
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      cursor: no-drop;
+
+      ${({ theme: { colors } }) => css`
+        background-image: linear-gradient(
+          to right,
+          ${colors.auxiliary.gray},
+          ${colors.auxiliary.white},
+          ${colors.auxiliary.gray}
+        );
+
+        &:hover {
+          font-weight: normal;
+          background-position: left center;
+        }
+      `}
+    `};
+
   ${({ fullWidth }) =>
     fullWidth &&
     css`
