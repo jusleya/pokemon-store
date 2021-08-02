@@ -10,7 +10,7 @@ import * as S from './ShoppingCart.style';
 export const ShoppingCart = ({ list, price }) => {
   const { formatMessage } = useIntl();
   const [show, setShow] = useState(false);
-  let cont = 0;
+  let count = 0;
   let valueT = 0;
 
   return (
@@ -22,13 +22,13 @@ export const ShoppingCart = ({ list, price }) => {
         </S.Cart>
         <S.List>
           {list.map(({ listShopping }) => {
-            const { name } = listShopping;
-            cont += 1;
-            valueT = price * cont;
+            const { id, name } = listShopping;
+            count += 1;
+            valueT = price * count;
 
             return (
-              <Flex justifyContent="space-between">
-                <S.Item key={cont}>{name}</S.Item>
+              <Flex justifyContent="space-between" key={id - count}>
+                <S.Item>{name}</S.Item>
                 <p>
                   {price.toLocaleString('pt-BR', {
                     style: 'currency',

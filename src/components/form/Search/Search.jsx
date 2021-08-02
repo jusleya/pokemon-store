@@ -1,38 +1,71 @@
 /* eslint-disable */
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
+import { PokemonActions } from '../../../store/pokemon/pokemon.duck';
 
-import { IcSearch } from '../../../assets/icons';
+import { IcSearch, IcCartAdd, IcClose } from '../../../assets/icons';
 
 import * as S from './Search.style';
 
 export const Search = ({ pokemons }) => {
+  const dispatch = useDispatch();
   const [searchString, setSearchString] = useState('');
-  const [array] = useState([]);
+  const [clear, setClear] = useState(true);
+  const [arrayPokemon] = useState([]);
 
-  async function searchWord(e) {
+  const clearString = () => {
+    while (arrayPokemon.length) arrayPokemon.pop();
+    setSearchString('');
+  };
+
+  const searchWord = (e) => {
     setSearchString(e.target.value);
+    setClear(true);
 
-    while (array.length) array.pop();
-    await pokemons.map(({ pokemon }) => {
+    while (arrayPokemon.length) arrayPokemon.pop();
+    pokemons.map(({ pokemon }) => {
       const { name } = pokemon;
       if (name.includes(e.target.value)) {
-        array.push(pokemon);
+        arrayPokemon.push(pokemon);
       }
     });
-  }
+  };
+
+  const shoppingList = (id, name) => {
+    dispatch(PokemonActions.shoppingBuy({ id, name }));
+  };
 
   return (
     <S.Search>
-      <IcSearch />
+      <S.SearchIcon>
+        {arrayPokemon.length > 0 ? (
+          <IcClose
+            onClick={() => {
+              setClear(false);
+              clearString();
+            }}
+          />
+        ) : (
+          <IcSearch />
+        )}
+      </S.SearchIcon>
       <S.Input value={searchString} onChange={searchWord} />
-      {/* {
-        <div style={{ backgroundColor: 'red', position: 'absolute' }}>
-          {array.map((a) => (
-            <p>{a}</p>
-          ))}
-        </div>
-      } */}
+      {arrayPokemon.length > 0 && clear && (
+        <S.Results>
+          {arrayPokemon.map((pokemon) => {
+            const { name, id } = pokemon;
+            return (
+              <S.Item key={id}>
+                <p>{name}</p>
+                <div>
+                  <IcCartAdd onClick={() => shoppingList(id, name)} />
+                </div>
+              </S.Item>
+            );
+          })}
+        </S.Results>
+      )}
     </S.Search>
   );
 };

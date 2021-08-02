@@ -1,15 +1,10 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import media from 'styled-media-query';
 import { Flex } from '../../structure';
 
 export const Search = styled(Flex)`
   position: relative;
   align-items: center;
-
-  svg {
-    left: 14px;
-    position: absolute;
-  }
 `;
 
 export const Input = styled.input`
@@ -28,4 +23,36 @@ export const Input = styled.input`
   ${media.lessThan('1024px')`
     width: 200px;
   `}
+`;
+
+export const Item = styled(Flex)`
+  padding: 16px;
+  align-items: center;
+  justify-content: space-between;
+  svg {
+    cursor: pointer;
+  }
+  ${({ theme: { colors } }) => css`
+    border-bottom: 1px solid ${colors.secondary};
+  `}
+`;
+
+export const Results = styled.div`
+  left: 6px;
+  top: 40px;
+  width: 490px;
+  height: 225px;
+  padding: 24px;
+  overflow-y: auto;
+  position: absolute;
+  background-color: white;
+
+  ${media.lessThan('1024px')`
+    width: 190px;
+  `}
+`;
+
+export const SearchIcon = styled.div`
+  left: 14px;
+  position: absolute;
 `;
