@@ -1,9 +1,9 @@
 import { createActions, createReducer } from 'reduxsauce';
 
-export const { Types: FairyType, Creators: FairyActions } = createActions({
-  getFairy: ['payload'],
-  getFairySuccess: ['payload'],
-  getFairyError: ['payload'],
+export const { Types: PokemonType, Creators: PokemonActions } = createActions({
+  getPokemon: ['payload'],
+  getPokemonSuccess: ['payload'],
+  getPokemonError: ['payload'],
 
   shoppingBuy: ['payload'],
   shoppingBuySuccess: ['payload'],
@@ -11,7 +11,7 @@ export const { Types: FairyType, Creators: FairyActions } = createActions({
 });
 
 const INITAL_STATE = {
-  fairy: [],
+  pokemon: [],
   error: false,
   totalPages: 0,
   loading: false,
@@ -20,20 +20,20 @@ const INITAL_STATE = {
   loadingShopping: false,
 };
 
-const getFairy = (state = INITAL_STATE) => ({
+const getPokemon = (state = INITAL_STATE) => ({
   ...state,
   loading: true,
 });
 
-const getFairySuccess = (state, payload) => ({
+const getPokemonSuccess = (state, payload) => ({
   ...state,
   loading: false,
-  fairy: payload.fairy,
+  pokemon: payload.pokemon,
   totalPages: payload.totalPages,
   arrayPokemons: payload.arrayPokemons,
 });
 
-const getFairyError = (state = INITAL_STATE) => ({
+const getPokemonError = (state = INITAL_STATE) => ({
   ...state,
   error: true,
   loading: false,
@@ -61,11 +61,11 @@ const shoppingBuyError = (state) => ({
 });
 
 export default createReducer(INITAL_STATE, {
-  [FairyType.GET_FAIRY]: getFairy,
-  [FairyType.GET_FAIRY_SUCCESS]: getFairySuccess,
-  [FairyType.GET_FAIRY_ERROR]: getFairyError,
+  [PokemonType.GET_POKEMON]: getPokemon,
+  [PokemonType.GET_POKEMON_SUCCESS]: getPokemonSuccess,
+  [PokemonType.GET_POKEMON_ERROR]: getPokemonError,
 
-  [FairyType.SHOPPING_BUY]: shoppingBuy,
-  [FairyType.SHOPPING_BUY_SUCCESS]: shoppingBuySuccess,
-  [FairyType.SHOPPING_BUY_ERROR]: shoppingBuyError,
+  [PokemonType.SHOPPING_BUY]: shoppingBuy,
+  [PokemonType.SHOPPING_BUY_SUCCESS]: shoppingBuySuccess,
+  [PokemonType.SHOPPING_BUY_ERROR]: shoppingBuyError,
 });

@@ -6,6 +6,4 @@ export const baseURL = `${base}`;
 
 export const TYPE = `${baseURL}/type`;
 
-export const POKEMON = `${baseURL}/pokemon`;
-
-export const FAIRY = `${TYPE}/${style.api.typePokemon}`;
+export const POKEMON = `${TYPE}/${style.api.typePokemon}`;

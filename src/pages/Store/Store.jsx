@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { LayoutGrid, Flex } from '../../components/structure';
 import { Box, ShoppingCart } from '../../components/contexts/store';
-import { FairyActions } from '../../store/fairy/fairy.duck';
+import { PokemonActions } from '../../store/pokemon/pokemon.duck';
 
 import * as S from './Store.style';
 
 const HomePage = () => {
   const dispatch = useDispatch();
   const { arrayPokemons, totalPages, listShopping } = useSelector(
-    (state) => state.fairyReducer,
+    (state) => state.pokemonReducer,
   );
   const price = 100;
   const [currentPage, setCurrentPage] = useState(1);
@@ -28,11 +28,11 @@ const HomePage = () => {
     ));
 
   const shoppingList = (id, name) => {
-    dispatch(FairyActions.shoppingBuy({ id, name }));
+    dispatch(PokemonActions.shoppingBuy({ id, name }));
   };
 
   useEffect(() => {
-    dispatch(FairyActions.getFairy());
+    dispatch(PokemonActions.getPokemon());
   }, [dispatch]);
 
   return (

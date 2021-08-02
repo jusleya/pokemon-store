@@ -1,16 +1,16 @@
 import { takeLatest, put } from 'redux-saga/effects';
-import { FairyType } from './fairy.duck';
+import { PokemonType } from './pokemon.duck';
 import { GET } from '../../constants/verbs';
-import { FAIRY } from '../../constants/endpoints';
+import { POKEMON } from '../../constants/endpoints';
 import api from '../../services/api';
 
-export function* getFairy() {
+export function* getPokemon() {
   try {
-    const fairy = yield api({
+    const pokemonData = yield api({
       method: GET,
-      url: FAIRY,
+      url: POKEMON,
     });
-    const pokemons = fairy.data.pokemon;
+    const pokemons = pokemonData.data.pokemon;
     const pokemonLength = pokemons.length;
     let i = 0;
     let arrayAux = [];
@@ -37,11 +37,11 @@ export function* getFairy() {
     yield put({
       totalPages,
       arrayPokemons,
-      fairy: pokemons,
-      type: FairyType.GET_FAIRY_SUCCESS,
+      pokemon: pokemons,
+      type: PokemonType.GET_POKEMON_SUCCESS,
     });
   } catch {
-    yield put({ type: FairyType.GET_FAIRY_ERROR });
+    yield put({ type: PokemonType.GET_POKEMON_ERROR });
   }
 }
 
@@ -49,14 +49,14 @@ export function* shoppingBuy({ payload }) {
   try {
     yield put({
       listShopping: payload,
-      type: FairyType.SHOPPING_BUY_SUCCESS,
+      type: PokemonType.SHOPPING_BUY_SUCCESS,
     });
   } catch {
-    yield put({ type: FairyType.SHOPPING_BUY_ERROR });
+    yield put({ type: PokemonType.SHOPPING_BUY_ERROR });
   }
 }
 
 export function* watchSagas() {
-  yield takeLatest(FairyType.GET_FAIRY, getFairy);
-  yield takeLatest(FairyType.SHOPPING_BUY, shoppingBuy);
+  yield takeLatest(PokemonType.GET_POKEMON, getPokemon);
+  yield takeLatest(PokemonType.SHOPPING_BUY, shoppingBuy);
 }
