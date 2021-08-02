@@ -1,6 +1,9 @@
+/* eslint-disable */
+import { style } from '../../style';
+
 export const colors = {
-  primary: '#f492a5',
-  secondary: '#f9cbd0',
+  primary: `${style.colors.primary}`,
+  secondary: `${style.colors.secondary}`,
 
   auxiliary: {
     black: '#333',
