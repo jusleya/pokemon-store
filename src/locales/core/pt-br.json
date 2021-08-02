@@ -2,5 +2,11 @@
   "button": {
     "add": "Adicionar",
     "finalize": "Finalizar"
+  },
+  "modal": {
+    "completed": "Compra Finalizada",
+    "thanks": "Obrigada por sua compra",
+    "youWon": "Você ganhou ",
+    "back": " de cashback!"
   }
 }

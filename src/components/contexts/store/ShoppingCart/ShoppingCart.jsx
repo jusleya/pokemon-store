@@ -63,12 +63,7 @@ export const ShoppingCart = ({ list, price }) => {
         </S.Info>
       </S.Card>
 
-      {show && (
-        <Modal
-          showModal={(showModal) => setShow(showModal)}
-          cashback={valueT * 0.05}
-        />
-      )}
+      {show && <Modal showModal={setShow} cashback={valueT * 0.05} />}
     </>
   );
 };

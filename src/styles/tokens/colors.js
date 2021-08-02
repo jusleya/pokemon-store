@@ -1,4 +1,3 @@
-/* eslint-disable */
 import { style } from '../../style';
 
 export const colors = {

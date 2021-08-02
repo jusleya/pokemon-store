@@ -1,4 +1,3 @@
-/* eslint-disable import/no-cycle */
 import styled, { css } from 'styled-components';
 import media from 'styled-media-query';
 import { Flex } from '..';

@@ -1,4 +1,3 @@
-/* eslint-disable */
 import { createActions, createReducer } from 'reduxsauce';
 
 export const { Types: FairyType, Creators: FairyActions } = createActions({

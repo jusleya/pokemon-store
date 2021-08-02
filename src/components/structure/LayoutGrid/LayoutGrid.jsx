@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Flex } from '..';
@@ -14,7 +13,7 @@ export const LayoutGrid = ({ children, sidebar, listShopping }) => {
       <S.Navbar>
         <Flex justifyContent="space-between">
           <p>Teste</p>
-          <div onClick={() => setShowCart(!showCart)}>
+          <div aria-hidden="true" onClick={() => setShowCart(!showCart)}>
             {showCart ? (
               <IcClose />
             ) : (
@@ -32,7 +31,12 @@ export const LayoutGrid = ({ children, sidebar, listShopping }) => {
   );
 };
 
+LayoutGrid.defaultProps = {
+  listShopping: [],
+};
+
 LayoutGrid.propTypes = {
   children: PropTypes.node.isRequired,
+  sidebar: PropTypes.node.isRequired,
   listShopping: PropTypes.array,
 };

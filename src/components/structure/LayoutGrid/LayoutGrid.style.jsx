@@ -1,5 +1,4 @@
-/* eslint-disable indent */
-/* eslint-disable no-confusing-arrow */
+/* eslint-disable */
 import styled, { css } from 'styled-components';
 import media from 'styled-media-query';
 

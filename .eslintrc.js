@@ -21,6 +21,8 @@ module.exports = {
       'after',
       { overrides: { '?': 'before', ':': 'before' } },
     ],
+    'object-curly-newline': ['error', { consistent: true }],
+    'import/no-cycle': 0,
     'implicit-arrow-linebreak': 0,
     'linebreak-style': 0,
   },
