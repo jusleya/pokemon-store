@@ -1,70 +1,94 @@
-# Getting Started with Create React App
+## Solução
+Este projeto é relacionado ao desafio técnico do processo seletivo de front-end da empresa B2W. No qual era necessário fazer uma aplicação client-side, para criar lojas de venda de Pokemon's.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Para a implementação foi utilizado: ReactJs, Redux, Styled-components, Redux-saga, Redux-sauce, Duck Pattern, JavaScript, HTML e CSS. NPM e YARN foram utilizados para execução e instalação das bibliotecas.
 
-## Available Scripts
+Esse projeto está dividido em 10 pastas:
+- assets, imagens e fontes utilizadas;
+- components, components está dividido em 3 outras pastas: contexts (components das pages), form (components utilizados em forms) e structure (components para a estrutura do sistema);
+- constants, as constantes do sistema;
+- lib e providers, configurações de execução do projeto;
+- locales, JSON com os principais textos;
+- pages, codígos de cada tela;
+- services, configurações de conexão da API;
+- store, requisições da API;
+- styles,style glogal e theme do sistema.
 
-In the project directory, you can run:
+## Organização
+```
+├── src
+│   ├── assets
+│   │   └── fonts
+│   │   └── icons
+│   ├── components
+│   │   └── contexts
+│   │   └── form
+│   │   └── structure
+│   ├── constants
+│   ├── lib
+│   │   └── core
+│   │   └── pages
+│   ├── locales
+│   │   └── core
+│   │   └── pages
+│   ├── pages
+│   │   └── Store
+│   ├── providers
+│   ├── services
+│   ├── store
+│   │   └── pokemon
+│   ├── styles
+│   │   └── tokens
 
-### `yarn start`
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Execução
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+``` bash
+# Install dependencies
+yarn
 
-### `yarn test`
+# Execution [http://localhost:3000](http://localhost:3000)
+yarn start
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
 
-### `yarn build`
+## Execução - Troca de cliente
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Para a troca de loja, siga os passos abaixo. Depois refaça os passos mencionados anteriormente para garantir que todas as bibliotecas foram instaladas e executar de forma correta.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+``` bash
+# Install gulp
+npm install --global gulp-cli
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Install gulp na pasta do projeto
+npm install --save-dev gulp
 
-### `yarn eject`
+# Execution [Fairy]
+gulp --profile fairy
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# Execution [Fire]
+gulp --profile fire
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Execution [Bug]
+gulp --profile Bug
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Bibliotecas
+- ReactJs;
+- Redux;
+- redux-saga;
+- reduxsauce;
+- react-router-dom;
+- PropTypes;
+- Styled-components;
+- Axios;
+- gulp;
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Referências
+- Cores: https://pokemon-palettes.tumblr.com/
+  - Fairy: https://pokemon-palettes.tumblr.com/post/43105248807/ninfia-sylveon-is-just-the-perfect-v-day-pokemon
+  - Fire: https://pokemon-palettes.tumblr.com/post/75865135307
+  - Bug: https://pokemon-palettes.tumblr.com/post/83970998743
+- Gulp: https://gulpjs.com/docs/en/getting-started/quick-start
