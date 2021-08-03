@@ -21,7 +21,9 @@ export const LayoutGrid = ({ children, sidebar, pokemons, listShopping }) => {
             ) : (
               <>
                 <IcCart />
-                <S.Number>{listShopping?.length}</S.Number>
+                <S.Number>
+                  {listShopping?.length ? listShopping?.length : 0}
+                </S.Number>
               </>
             )}
           </S.Cart>
