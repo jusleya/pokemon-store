@@ -3,14 +3,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { LayoutGrid, Flex } from '../../components/structure';
 import { Box, ShoppingCart } from '../../components/contexts/store';
 import { PokemonActions } from '../../store/pokemon/pokemon.duck';
+import { StoreSkeleton } from './Store.skeleton';
 
 import * as S from './Store.style';
 
 const HomePage = () => {
   const dispatch = useDispatch();
-  const { pokemons, arrayPokemons, totalPages, listShopping } = useSelector(
-    (state) => state.pokemonReducer,
-  );
+  const { pokemons, arrayPokemons, totalPages, listShopping, loading } =
+    useSelector((state) => state.pokemonReducer);
   const listLocal = JSON.parse(localStorage.getItem('listShopping'));
   const listFinal = !listShopping ? listShopping : listLocal;
   const price = 100;
@@ -43,21 +43,29 @@ const HomePage = () => {
       listShopping={listFinal}
       pokemons={pokemons}
     >
-      <S.Content spaceBetween={16}>
-        {arrayPokemons[currentPage - 1]?.map(({ name, id: idPokemon, img }) => (
-          <Box
-            key={idPokemon}
-            name={name}
-            image={img}
-            price={price}
-            marginBottom={16}
-            onClick={() => shoppingList(idPokemon, name, img)}
-          />
-        ))}
-      </S.Content>
-      <Flex spaceBetween={4} justifyContent="center" paddingBottom={16}>
-        {pages()}
-      </Flex>
+      {loading ? (
+        <StoreSkeleton />
+      ) : (
+        <>
+          <S.Content spaceBetween={16}>
+            {arrayPokemons[currentPage - 1]?.map(
+              ({ name, id: idPokemon, img }) => (
+                <Box
+                  key={idPokemon}
+                  name={name}
+                  image={img}
+                  price={price}
+                  marginBottom={16}
+                  onClick={() => shoppingList(idPokemon, name, img)}
+                />
+              ),
+            )}
+          </S.Content>
+          <Flex spaceBetween={4} justifyContent="center" paddingBottom={16}>
+            {pages()}
+          </Flex>
+        </>
+      )}
     </LayoutGrid>
   );
 };
