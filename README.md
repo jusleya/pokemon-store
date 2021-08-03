@@ -91,4 +91,6 @@ gulp --profile Bug
   - Fairy: https://pokemon-palettes.tumblr.com/post/43105248807/ninfia-sylveon-is-just-the-perfect-v-day-pokemon
   - Fire: https://pokemon-palettes.tumblr.com/post/75865135307
   - Bug: https://pokemon-palettes.tumblr.com/post/83970998743
+- Ícones: https://www.figma.com/
+  -  Plugin: https://iconify.design/
 - Gulp: https://gulpjs.com/docs/en/getting-started/quick-start
