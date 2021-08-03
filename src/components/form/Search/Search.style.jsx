@@ -7,6 +7,10 @@ export const Search = styled(Flex)`
   align-items: center;
 `;
 
+export const Img = styled.img`
+  height: 40px;
+`;
+
 export const Input = styled.input`
   height: 40px;
   border: none;

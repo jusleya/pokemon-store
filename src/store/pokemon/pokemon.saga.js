@@ -17,6 +17,15 @@ export function* getPokemon() {
     const arrayPokemons = [];
     for (let k = 0; k < pokemonLength; k += 1) {
       pokemons[k] = { ...pokemons[k], ...(pokemons[k].pokemon.id = k) };
+
+      const imgData = yield api({
+        method: GET,
+        url: pokemons[k].pokemon.url,
+      });
+      const imgSVG = imgData.data.sprites.other.dream_world.front_default;
+      const imgPNG = imgData.data.sprites.front_default;
+      const img = imgSVG !== null ? imgSVG : imgPNG;
+      pokemons[k] = { ...pokemons[k], ...(pokemons[k].pokemon.img = img) };
     }
 
     while (i <= pokemonLength) {

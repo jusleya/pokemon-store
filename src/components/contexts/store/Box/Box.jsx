@@ -6,12 +6,12 @@ import { Button } from '../../../form';
 
 import * as S from './Box.style';
 
-export const Box = ({ name, marginBottom, price, onClick }) => {
+export const Box = ({ name, image, marginBottom, price, onClick }) => {
   const { formatMessage } = useIntl();
 
   return (
     <S.Box marginBottom={marginBottom}>
-      <S.ImgCard />
+      <S.ImgCard src={image} />
       <Flex
         height={100}
         direction="column"
@@ -34,10 +34,12 @@ export const Box = ({ name, marginBottom, price, onClick }) => {
 };
 
 Box.defaultProps = {
+  image: '',
   marginBottom: 0,
 };
 
 Box.propTypes = {
+  image: PropTypes.string,
   marginBottom: PropTypes.number,
   price: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,

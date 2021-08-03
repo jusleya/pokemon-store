@@ -7,6 +7,7 @@ import { PokemonActions } from '../../../store/pokemon/pokemon.duck';
 import { IcSearch, IcCartAdd, IcClose } from '../../../assets/icons';
 
 import * as S from './Search.style';
+import { Flex } from '../../structure';
 
 export const Search = ({ pokemons }) => {
   const dispatch = useDispatch();
@@ -32,8 +33,8 @@ export const Search = ({ pokemons }) => {
     });
   };
 
-  const shoppingList = (id, name) => {
-    dispatch(PokemonActions.shoppingBuy({ id, name }));
+  const shoppingList = (id, name, img) => {
+    dispatch(PokemonActions.shoppingBuy({ id, name, img }));
   };
 
   return (
@@ -54,12 +55,15 @@ export const Search = ({ pokemons }) => {
       {arrayPokemon.length > 0 && clear && (
         <S.Results>
           {arrayPokemon.map((pokemon) => {
-            const { name, id } = pokemon;
+            const { name, img, id } = pokemon;
             return (
               <S.Item key={id}>
-                <p>{name}</p>
+                <Flex alignItems="center" spaceBetween={16}>
+                  <S.Img src={img} />
+                  <p>{name}</p>
+                </Flex>
                 <div>
-                  <IcCartAdd onClick={() => shoppingList(id, name)} />
+                  <IcCartAdd onClick={() => shoppingList(id, name, img)} />
                 </div>
               </S.Item>
             );

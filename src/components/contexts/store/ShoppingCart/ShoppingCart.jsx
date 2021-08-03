@@ -22,20 +22,23 @@ export const ShoppingCart = ({ list, price }) => {
         </S.Cart>
         <S.List>
           {list?.map(({ listShopping }) => {
-            const { id, name } = listShopping;
+            const { id, img, name } = listShopping;
             count += 1;
             valueT = price * count;
 
             return (
-              <Flex justifyContent="space-between" key={id - count}>
-                <S.Item>{name}</S.Item>
+              <S.ListIem justifyContent="space-between" key={id - count}>
+                <Flex alignItems="center" spaceBetween={16}>
+                  <S.Img src={img} />
+                  <S.Item>{name}</S.Item>
+                </Flex>
                 <p>
                   {price.toLocaleString('pt-BR', {
                     style: 'currency',
                     currency: 'BRL',
                   })}
                 </p>
-              </Flex>
+              </S.ListIem>
             );
           })}
         </S.List>

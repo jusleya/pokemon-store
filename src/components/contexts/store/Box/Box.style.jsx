@@ -20,11 +20,11 @@ export const Box = styled.div.attrs(({ marginBottom }) => ({
   `}
 `;
 
-export const ImgCard = styled.div`
+export const ImgCard = styled.img`
   height: 150px;
+  max-width: 150px;
   border-radius: 8px;
   margin-bottom: 8px;
-  background-color: aliceblue;
 `;
 
 export const Price = styled.h3`

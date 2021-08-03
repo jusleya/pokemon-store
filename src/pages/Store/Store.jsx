@@ -29,8 +29,8 @@ const HomePage = () => {
       </S.Page>
     ));
 
-  const shoppingList = (id, name) => {
-    dispatch(PokemonActions.shoppingBuy({ id, name }));
+  const shoppingList = (id, name, img) => {
+    dispatch(PokemonActions.shoppingBuy({ id, name, img }));
   };
 
   useEffect(() => {
@@ -44,13 +44,14 @@ const HomePage = () => {
       pokemons={pokemons}
     >
       <S.Content spaceBetween={16}>
-        {arrayPokemons[currentPage - 1]?.map(({ name, id: idPokemon }) => (
+        {arrayPokemons[currentPage - 1]?.map(({ name, id: idPokemon, img }) => (
           <Box
             key={idPokemon}
             name={name}
+            image={img}
             price={price}
             marginBottom={16}
-            onClick={() => shoppingList(idPokemon, name)}
+            onClick={() => shoppingList(idPokemon, name, img)}
           />
         ))}
       </S.Content>

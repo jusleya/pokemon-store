@@ -27,9 +27,13 @@ export const Cart = styled(Flex)`
   `}
 `;
 
+export const Img = styled.img`
+  height: 40px;
+`;
+
 export const Item = styled.h4`
-  font-weight: normal;
   font-size: 18px;
+  font-weight: normal;
 `;
 
 export const Info = styled(Flex)`
@@ -46,10 +50,12 @@ export const Info = styled(Flex)`
 export const List = styled.div`
   height: 225px;
   overflow-y: auto;
-  div {
-    padding: 16px;
-    ${({ theme: { colors } }) => css`
-      border-bottom: 1px solid ${colors.secondary};
-    `}
-  }
+`;
+
+export const ListIem = styled(Flex)`
+  padding: 16px;
+  align-items: center;
+  ${({ theme: { colors } }) => css`
+    border-bottom: 1px solid ${colors.secondary};
+  `}
 `;
