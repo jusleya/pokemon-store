@@ -46,6 +46,10 @@ const shoppingBuy = (state = INITAL_STATE) => ({
 
 const shoppingBuySuccess = (state, payload) => {
   const { listShopping } = payload;
+  localStorage.setItem(
+    'listShopping',
+    JSON.stringify([...state.listShopping, { listShopping }]),
+  );
 
   return {
     ...state,

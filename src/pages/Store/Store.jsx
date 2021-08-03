@@ -11,6 +11,8 @@ const HomePage = () => {
   const { pokemons, arrayPokemons, totalPages, listShopping } = useSelector(
     (state) => state.pokemonReducer,
   );
+  const listLocal = JSON.parse(localStorage.getItem('listShopping'));
+  const listFinal = !listShopping ? listShopping : listLocal;
   const price = 100;
   const [currentPage, setCurrentPage] = useState(1);
   const pagesNumbers = [];
@@ -37,8 +39,8 @@ const HomePage = () => {
 
   return (
     <LayoutGrid
-      sidebar={<ShoppingCart list={listShopping} price={price} />}
-      listShopping={listShopping}
+      sidebar={<ShoppingCart list={listFinal} price={price} />}
+      listShopping={listFinal}
       pokemons={pokemons}
     >
       <S.Content spaceBetween={16}>

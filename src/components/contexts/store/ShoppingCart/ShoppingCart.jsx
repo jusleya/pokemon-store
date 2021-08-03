@@ -21,7 +21,7 @@ export const ShoppingCart = ({ list, price }) => {
           <h3>{formatMessage({ id: 'store.cart' })}</h3>
         </S.Cart>
         <S.List>
-          {list.map(({ listShopping }) => {
+          {list?.map(({ listShopping }) => {
             const { id, name } = listShopping;
             count += 1;
             valueT = price * count;

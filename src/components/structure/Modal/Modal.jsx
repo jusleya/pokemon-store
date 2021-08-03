@@ -21,6 +21,7 @@ export const Modal = ({ showModal, cashback }) => {
           <IcClose
             onClick={() => {
               setCloseModal(!closeModal);
+              localStorage.clear();
               window.location.reload(true);
             }}
           />
